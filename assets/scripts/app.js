@@ -14,22 +14,25 @@ function updateLog(symbol, enteredValue) {
 	log += ` ${symbol} ${enteredValue}`;
 }
 
-function operation(type, symbol) {
+function operation(type) {
+	let symbol;
 	const enteredValue = getUserNumberInput();
 	switch (type) {
 		case "add":
 			curResult += enteredValue;
+			symbol = "+";
 			break;
 		case "subtract":
 			curResult -= enteredValue;
+			symbol = "-";
 			break;
 		case "multiply":
+			symbol = "*";
 			curResult *= enteredValue;
 			break;
 		case "divide":
+			symbol = "/";
 			curResult /= enteredValue;
-			break;
-		default:
 			break;
 	}
 	updateLog(symbol, enteredValue);
@@ -37,10 +40,10 @@ function operation(type, symbol) {
 }
 
 const buttons = [
-	{ element: addBtn, func: () => operation("add", "+") },
-	{ element: subtractBtn, func: () => operation("subtract", "-") },
-	{ element: multiplyBtn, func: () => operation("multiply", "*") },
-	{ element: divideBtn, func: () => operation("divide", "/") },
+	{ element: addBtn, func: () => operation("add") },
+	{ element: subtractBtn, func: () => operation("subtract") },
+	{ element: multiplyBtn, func: () => operation("multiply") },
+	{ element: divideBtn, func: () => operation("divide") },
 ];
 
 buttons.map((button) => {
