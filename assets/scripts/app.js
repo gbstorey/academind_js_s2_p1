@@ -1,5 +1,9 @@
 const defaultResult = 0;
 let curResult = defaultResult;
-let calculationDescription = `(${curResult} + 10) * 3 / 2 - 1`;
-curResult = ((curResult + 10) * 3) / 2 - 1;
-outputResult(curResult, calculationDescription);
+
+function add() {
+	curResult = curResult + userInput.value;
+	outputResult(curResult, "");
+}
+
+addBtn.addEventListener("click", add);
